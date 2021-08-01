@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/menu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link rel="shortcut icon" href="../static/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../static/images/favicon.ico" type="image/x-icon">
+    <title>3 Dining - menu</title>
+</head>
+<body>
+    <nav>
+        <div class="navigation">
+            <a href="{{ url_for('main.index') }}" class="neon-button">3 Dining</a>
+            <div class="icons">
+                <div class="tooltip">
+                    <a href="{{ url_for('main.index') }}"><i class="fas fa-home"></i></a>
+                    <span class="tooltiptext">Home</span>
+                  </div>
+                <div class="tooltip">
+                    <a href="{{ url_for('main.form') }}"><i class="fas fa-calendar-check"></i></a>
+                    <span class="tooltiptext">Book</span>
+                  </div>
+                <div class="tooltip">
+                    <a href="{{ url_for('main.menu') }}"><i class="fas fa-book-open"></i></a>
+                    <span class="tooltiptext">Menu</span>
+                  </div>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+
+        <div class="menu">
+            <div class="rank">1</div>
+            <div class="front">
+                <img src="../static/images/food1.png" alt="">
+                <h3 class="name">3 Course Set</h3>
+                <div class="stats">
+                    <p class="info">Info</p>
+                    <div class="contents">
+                        <img src="../static/images/prawn2.png" alt="">
+                        <img src="../static/images/meat.png" alt="">
+                        <img src="../static/images/cheese.png" alt="">
+    
+                    </div>
+                </div>
+            </div>
+    
+            <div class="back">
+                <div class="pricing-info">
+                    <p class="menu-stat">50.00<span>Regular</span></p>
+                    <p class="menu-stat">90.00<span>Premium</span></p>
+                </div>
+                <a href="{{ url_for('main.form') }}"><button class="btn">Manage Your Booking</button></a>
+                <div class="contents">
+                    <div class="set">
+                        <p class="name">Set 1</p>
+                    </div>
+                    <div class="set">
+                        <p class="name">Set 2</p>
+                    </div>
+                    <div class="set">
+                        <p class="name">Set 3</p>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="background"></div>
+            
+            <div class="back"></div>
+        </div>
+        
+        <div class="menu">
+            <div class="rank">2</div>
+            <div class="front">
+                <img src="../static/images/food2.png" alt="">
+                <h3 class="name">6 Course Set</h3>
+                <div class="stats">
+                    <p class="info">Info</p>
+                    <div class="contents">
+                        <img src="../static/images/prawn3.png" alt="">
+                        <img src="../static/images/fruit2.png" alt="">
+                        <img src="../static/images/nut2.png" alt="">
+    
+                    </div>
+                </div>
+            </div>
+    
+            <div class="back">
+                <div class="pricing-info">
+                    <p class="menu-stat">70.00<span>Regular</span></p>
+                    <p class="menu-stat">120.00<span>Premium</span></p>
+                </div>
+                <a href="{{ url_for('main.form') }}"><button class="btn">Manage Your Booking</button></a>
+                <div class="contents">
+                    <div class="set">
+                        <p class="name">Set 1</p>
+                    </div>
+                    <div class="set">
+                        <p class="name">Set 2</p>
+                    </div>
+                    <div class="set">
+                        <p class="name">Set 3</p>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="background"></div>
+    
+            <div class="back"></div>
+        </div>
+        
+        <div class="menu">
+            <div class="rank">3</div>
+            <div class="front">
+                <img src="../static/images/food3.png" alt="">
+                <h3 class="name">9 Course Set</h3>
+                <div class="stats">
+                    <p class="info">Info</p>
+                    <div class="contents">
+                        <img src="../static/images/nut1.png" alt="">
+                        <img src="../static/images/prawn1.png" alt="">
+                        <img src="../static/images/fish4.png" alt="">
+    
+                    </div>
+                </div>
+            </div>
+    
+            <div class="back">
+                <div class="pricing-info">
+                    <p class="menu-stat">90.00<span>Regular</span></p>
+                    <p class="menu-stat">150.00<span>Premium</span></p>
+                </div>
+                <a href="{{ url_for('main.form') }}"><button class="btn">Manage Your Booking</button></a>
+                <div class="contents">
+                    <div class="set">
+                        <p class="name">Set 1</p>
+                    </div>
+                    <div class="set">
+                        <p class="name">Set 2</p>
+                    </div>
+                    <div class="set">
+                        <p class="name">Set 3</p>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="background"></div>
+    
+            <div class="back"></div>
+        </div>
+
+    </div>
+    
+    
+</body>
+</html>

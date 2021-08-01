@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/form.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link rel="shortcut icon" href="../static/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../static/images/favicon.ico" type="image/x-icon">
+    <title>3 Dining - form</title>
+</head>
+<body>
+    <nav>
+        <div class="navigation">
+            <a href="{{ url_for('main.index') }}" class="neon-button">3 Dining</a>
+            <div class="icons">
+                <div class="tooltip">
+                    <a href="{{ url_for('main.index') }}"><i class="fas fa-home"></i></a>
+                    <span class="tooltiptext">Home</span>
+                  </div>
+                <div class="tooltip">
+                    <a href="{{ url_for('main.form') }}"><i class="fas fa-calendar-check"></i></a>
+                    <span class="tooltiptext">Book</span>
+                  </div>
+                <div class="tooltip">
+                    <a href="{{ url_for('main.menu') }}"><i class="fas fa-book-open"></i></a>
+                    <span class="tooltiptext">Menu</span>
+                  </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <form action="" method='POST' name="myform">
+            {{ form.csrt_token }}
+            <div class="date">
+                {{ form.book_date.label }} {{form.book_date(class='date_field')}} {{form.hidden_tag()}}
+            </div>
+            <div class="guests">
+                {{ form.guests.label }} {{form.guests(class='guests_field')}} {{form.hidden_tag()}}
+            </div>
+            <div class="email">
+                {{ form.email.label }} {{form.email(class='email_field')}} {{form.hidden_tag()}}
+            </div>
+            <div class="submit">
+                {{form.submit(class='submit_field')}} 
+            </div>
+        </form>
+        <h2 class="error">{{ error }}</h2>
+        {% if form.errors %}
+            {% for field_name, field_errors in form.errors|dictsort if field_errors %}
+                {% for error in field_errors %}
+                    <h2 class="error">{{ error }}</h2>
+                {% endfor %}
+            {% endfor %}
+        {% endif %}
+    </div>
+
+    </body>
+</html>
