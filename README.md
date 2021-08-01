@@ -17,7 +17,7 @@
 
 -------------------------------------------------
 
-![caption](https://github.com/mjaroszewski1979/3D_ining/blob/main/3d_dining.gif)
+![caption](https://github.com/mjaroszewski1979/3d_dining/blob/main/3d_ining.gif)
 
   
   Live | Code | Technologies
