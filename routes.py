@@ -52,9 +52,6 @@ def form():
 
 @main.route('/success', methods=['GET','POST'])
 def success():
-    bookdate = session['bookdate']
-    guests = session['guests']
-    email = session['email']
     return render_template('success.html')
 
 @main.route('/result', methods=['GET', 'POST'])
