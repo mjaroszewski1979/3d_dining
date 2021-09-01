@@ -16,8 +16,16 @@
 * Storing app’s secure credentials in environment variables
 * A highly adaptable and scalable workflow for structuring and configuring a production-grade flask application using flask blueprints and the application factory pattern
 
+--------------------------------------------------
+
+### Code Coverage
+
+<img src="https://github.com/mjaroszewski1979/market_bias_v2/blob/main/market_bias_coverage.png">
+
 
 -------------------------------------------------
+
+
 
 ![caption](https://github.com/mjaroszewski1979/3d_dining/blob/main/3_dining.gif)
 
