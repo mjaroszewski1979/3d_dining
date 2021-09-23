@@ -4,18 +4,20 @@ from wtforms.fields.html5 import DateField, IntegerField, EmailField
 from wtforms.validators import DataRequired
 from wtforms import validators, SubmitField, ValidationError
 
-
+# Custom validator for weekends exclusion
 class WeekdayValidator(object):
     def __call__(self, form, field):
         if field.data and field.data.isoweekday() > 6:
             raise ValidationError("Sorry, we are closed on weekends. Please choose a different date.")
 
+# Creating form class for booking system
 class InfoForm(FlaskForm):
     book_date = DateField('Booking Date', format='%Y-%m-%d', validators=[WeekdayValidator(), DataRequired()])
     guests = IntegerField('Number of Guests', [validators.DataRequired(), validators.NumberRange(min=0, max=30, message='Sorry, maximum number of guests per day is 30.')])
     email = EmailField('Email Address', [validators.DataRequired()])
     submit = SubmitField('Book Now')
 
+# Creating data base models with implementation of one-to-many relationship
 class Date(db.Model):
     __tablename__ = 'date'
     id = db.Column(db.Integer, primary_key=True)
