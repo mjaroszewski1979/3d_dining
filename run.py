@@ -3,6 +3,7 @@ from flask import Flask, Blueprint
 from extensions import db
 from routes import main
 
+# Creating an application object using factory pattern
 def create_app(config_file='settings.py'):
     app = Flask(__name__)
     
