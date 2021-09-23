@@ -16,18 +16,28 @@ def menu():
 
 @main.route('/form', methods=['GET','POST'])
 def form():
+    # Instantiating form class
     form = InfoForm()
+    
+    # Performing form validation
     if form.validate_on_submit():
         bookdate = form.book_date.data
         guests = form.guests.data
         email = form.email.data
+        
+        # Ensuring even parity for number of guests 
         if int(guests) % 2 == 1:
             guests = guests + 1
+            
         session['bookdate'] = bookdate
         session['guests'] = guests
         session['email'] = email
+        
+        # Checking for existing record in data base
         existing_date = Date.query.filter_by(book_date=bookdate).first()
         if not existing_date:
+            
+            # Creating and saving new data base objects
             new_book_date = Date(book_date=bookdate, guests_total=guests)
             new_detail = Details(email=email, guests=guests, date=new_book_date)
             db.session.add(new_book_date)
@@ -36,9 +46,13 @@ def form():
             db.session.commit()
             return redirect('success')
         else:
+            
+            # Summing up total number of guests
             old_total = existing_date.guests_total
             new_total = int(old_total) + int(guests)
             session['total'] = new_total
+            
+            # Ensuring that total number of guests does not exceed daily limit of 30 covers
             if new_total > 30:
                 error = 'Sorry, we are already fully booked. Please choose a different date.'
                 return render_template('form.html', error=error, form=form)
@@ -59,12 +73,16 @@ def result():
     try:
         if request.method == "POST":
             booking_date = request.form['date']
+            
+            # Querying data base for existing bookings on given date
             data = Date.query.filter_by(book_date=booking_date).first()
             total = data.guests_total
             data_id = data.id
             emails = Details.query.filter(Details.date_id == data_id).all()
             return render_template('result.html', total=total, emails=emails)
     except AttributeError:
+        
+        # Throwing an error if there are no records
         error = 'There are no bookings on the date you have selected!'
         return render_template('admin.html', error=error)
         
@@ -73,6 +91,7 @@ def result():
 def admin():
     return render_template('admin.html')
 
+# Custom error pages
 @main.app_errorhandler(404)
 def not_found(e):
     return render_template('404.html'), 404
