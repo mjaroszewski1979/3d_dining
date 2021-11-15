@@ -19,8 +19,11 @@ body {
     background-color: black;
     min-height: 100vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+            align-items: center;
+
     font-size: 75px;
     perspective: 10em;
     perspective-origin: 50% calc(50% - 2em);
@@ -80,9 +83,14 @@ body {
     position: absolute;
     top: -1em;
     left: -1em;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-animation: cubeRotate 10s linear infinite;
+    animation: cubeRotate 10s linear infinite;
 
 
 }
+
 
 .left, .right, .front, .back {
     background: #0ff7;
@@ -90,6 +98,7 @@ body {
     width: 100%;
     height: 100%;
     box-shadow: 0 0 0.5em #000a inset;
+
 }
 
 .front {
@@ -143,8 +152,6 @@ body {
      radial-gradient(#0000, #000 75%),
      repeating-conic-gradient(from 45deg, rgba(2, 110, 110, 0.467) 0deg 90deg, rgb(23, 2, 80) 90deg 180deg);
     background-size: 100%, 1em 1em;
-    
-
 }
 
 .container {
