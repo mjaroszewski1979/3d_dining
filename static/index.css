@@ -3,7 +3,7 @@
 
 
 :root {
-    --rotateSpeed: 30s;
+    --rotateSpeed: 25s;
     --bounceSpeed: 2s;
     --clr-dark: rgb(36, 35, 35);
     --clr-light: white;
@@ -12,12 +12,13 @@
     --clr-secondary: #0ff7;
     
     --br: .5em;
-
 }
 
 body {
     background-color: black;
     min-height: 100vh;
+    display: flex;
+    display: -webkit-box;
     display: flex;
     -webkit-box-pack: center;
             justify-content: center;
@@ -31,16 +32,26 @@ body {
 
 .scene {
     position: relative;
-    transform-style: preserve-3d;
-    animation: sceneRotate var(--rotateSpeed) infinite linear;
-    
-
+    -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+    -webkit-animation: sceneRotate var(--rotateSpeed) infinite linear;;
+          animation: sceneRotate var(--rotateSpeed) infinite linear;;
 }
+
+
+@-webkit-keyframes sceneRotate {
+    to {
+      -webkit-transform:rotateY(360deg);
+              transform:rotateY(360deg);
+    }
+  }
 
 @keyframes sceneRotate {
-    to { transform: rotateY(360deg); }
-        
-}
+    to {
+      -webkit-transform:rotateY(360deg);
+              transform:rotateY(360deg);
+    }
+  }
 
 .ball {
     width: 1em;
@@ -52,15 +63,22 @@ body {
     bottom: 1em;
     background-image: 
      radial-gradient(circle at top, rgba(0, 255, 255, 0.867), 45%, rgb(4, 0, 15));
+    -webkit-animation: 
+     ballBounce var(--bounceSpeed) infinite ease-out,
+     sceneRotate var(--rotateSpeed) infinite linear reverse;
     animation: 
      ballBounce var(--bounceSpeed) infinite ease-out,
      sceneRotate var(--rotateSpeed) infinite linear reverse;
 }
 
+@-webkit-keyframes ballBounce{
+    0%, 100% { bottom: 1em; }
+    50% { bottom: 3em; animation-timing-function: ease-in;}
+}
+
 @keyframes ballBounce{
     0%, 100% { bottom: 1em; }
     50% { bottom: 3em; animation-timing-function: ease-in;}
-
 }
 
 .ball-shadow {
@@ -68,13 +86,30 @@ body {
     width: 100%;
     height: 100%;
     background-image: radial-gradient(#0007, #0000 50%);
-    animation: ballShadow var(--bounceSpeed) infinite ease-out
+    animation: ballShadow var(--bounceSpeed) infinite ease-out;
+    -webkit-animation: ballShadow var(--bounceSpeed) infinite ease-out;
+}
+
+@-webkit-keyframes ballShadow{
+    0%, 100% { 
+        -webkit-transform: scale(1); opacity: 1;
+        transform: scale(1); opacity: 1;
+    }
+    50% { 
+        -webkit-transform: scale(2); opacity: 0.5; animation-timing-function: ease-in;
+        transform: scale(2); opacity: 0.5; animation-timing-function: ease-in;
+    }
 }
 
 @keyframes ballShadow{
-    0%, 100% { transform: scale(1); opacity: 1;}
-    50% { transform: scale(2); opacity: 0.5; animation-timing-function: ease-in;}
-
+    0%, 100% { 
+        -webkit-transform: scale(1); opacity: 1;
+        transform: scale(1); opacity: 1;
+    }
+    50% { 
+        -webkit-transform: scale(2); opacity: 0.5; animation-timing-function: ease-in;
+        transform: scale(2); opacity: 0.5; animation-timing-function: ease-in;
+    }
 }
 
 .cube {
@@ -87,8 +122,6 @@ body {
     transform-style: preserve-3d;
     -webkit-animation: cubeRotate 10s linear infinite;
     animation: cubeRotate 10s linear infinite;
-
-
 }
 
 
@@ -98,21 +131,28 @@ body {
     width: 100%;
     height: 100%;
     box-shadow: 0 0 0.5em #000a inset;
-
 }
 
 .front {
+    -webkit-transform: translateZ(1em);
     transform: translateZ(1em);
 }
+
 .right {
+    -webkit-transform: rotateY(90deg) translateZ(1em);
     transform: rotateY(90deg) translateZ(1em);
 }
+
 .back {
+    -webkit-transform: rotateY(180deg) translateZ(1em);
     transform: rotateY(180deg) translateZ(1em);
 }
+
 .left {
+    -webkit-transform: rotateY(270deg) translateZ(1em);
     transform: rotateY(270deg) translateZ(1em);
 }
+
 .front::before,
 .right::before,
 .back::before,
@@ -125,11 +165,13 @@ body {
     color: transparent;
     text-shadow: 0px 4px 4px #0ff7, 0 0 0 rgba(23, 2, 80, 0.55), 0px 4px 4px #0ff7;
 }
+
 .top {
     background: #0ff7;
     position: absolute;
     width: 2em;
     height: 2em;
+    -webkit-transform: translateY(-50%) rotateX(90deg);
     transform: translateY(-50%) rotateX(90deg);
 }
 
@@ -139,14 +181,17 @@ body {
     height: 2em;
     background: #0007;
     bottom: 0;
+    -webkit-transform: translateY(50%) rotateX(90deg);
     transform: translateY(50%) rotateX(90deg);
     box-shadow: 0 0 0.5em #000;
 }
+
 .floor {
     position: absolute;
     top: 1em;
     width: 15em;
     height: 15em;
+    -webkit-transform: translate(-50%, -50%) rotateX(90deg);
     transform: translate(-50%, -50%) rotateX(90deg);
     background-image:
      radial-gradient(#0000, #000 75%),
@@ -184,6 +229,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
+    -webkit-transform: perspective(0.5em) rotateX(40deg) scale(1, 0.35);
     transform: perspective(0.5em) rotateX(40deg) scale(1, 0.35);
     filter: blur(1.5em);
     opacity: 0.7;
@@ -200,6 +246,7 @@ body {
     opacity: 0;
     background-color: deeppink;
     z-index: -1;
+    -webkit-transition: opacity 100ms linear;
     transition: opacity 100ms linear;
 }
 
@@ -260,6 +307,7 @@ body {
     top: 100%;
     left: 50%;
     opacity: 0;
+    -webkit-transition: opacity 1s;
     transition: opacity 1s;
   }
   
