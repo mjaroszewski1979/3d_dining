@@ -41,3 +41,15 @@ class Details(db.Model):
 
     def __repr__(self):
         return f'<Details: {self.id} {self.email} {self.guests}>'
+    
+class Menu:
+    def __init__(self):
+        
+        self.fronts = ['food1.png', 'food2.png', 'food3.png']
+        self.ranks = [1,2,3]
+        self.names = ['3 Course Set', '6 Course Set', '9 Course Set']
+        self.contents_1 = ['prawn2.png', 'prawn3.png', 'nut1.png']
+        self.contents_2 = ['meat.png', 'fruit2.png', 'prawn1.png']
+        self.contents_3 = ['cheese.png', 'nut2.png', 'fish4.png']
+        self.stats_1 = ['50.00', '70.00', '90.00']
+        self.stats_2 = ['100.00', '140.00', '180.00']
