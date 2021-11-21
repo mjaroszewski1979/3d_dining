@@ -1,131 +1,17 @@
 {% extends 'base.html' %}
+{% from 'macros.html' import menu %}
 
     {% block stylesheet %}<link rel="stylesheet" href="../static/menu.css">{% endblock %}
 
     {% block title %}Menu{% endblock %}
-
+       
     {% block content %}
-    <div class="container">
+    
+    <div class="carts">
 
-        <div class="menu">
-            <div class="rank">1</div>
-            <div class="front">
-                <img src="../static/images/food1.png" alt="">
-                <h3 class="name">3 Course Set</h3>
-                <div class="stats">
-                    <p class="info">Info</p>
-                    <div class="contents">
-                        <img src="../static/images/prawn2.png" alt="">
-                        <img src="../static/images/meat.png" alt="">
-                        <img src="../static/images/cheese.png" alt="">
-    
-                    </div>
-                </div>
-            </div>
-    
-            <div class="back">
-                <div class="pricing-info">
-                    <p class="menu-stat">50.00<span>Regular</span></p>
-                    <p class="menu-stat">90.00<span>Premium</span></p>
-                </div>
-                <a href="{{ url_for('main.form') }}"><button class="btn">Manage Your Booking</button></a>
-                <div class="contents">
-                    <div class="set">
-                        <p class="name">Set 1</p>
-                    </div>
-                    <div class="set">
-                        <p class="name">Set 2</p>
-                    </div>
-                    <div class="set">
-                        <p class="name">Set 3</p>
-                    </div>
-                </div>
-            </div>
-    
-            <div class="background"></div>
-            
-            <div class="back"></div>
-        </div>
-        
-        <div class="menu">
-            <div class="rank">2</div>
-            <div class="front">
-                <img src="../static/images/food2.png" alt="">
-                <h3 class="name">6 Course Set</h3>
-                <div class="stats">
-                    <p class="info">Info</p>
-                    <div class="contents">
-                        <img src="../static/images/prawn3.png" alt="">
-                        <img src="../static/images/fruit2.png" alt="">
-                        <img src="../static/images/nut2.png" alt="">
-    
-                    </div>
-                </div>
-            </div>
-    
-            <div class="back">
-                <div class="pricing-info">
-                    <p class="menu-stat">70.00<span>Regular</span></p>
-                    <p class="menu-stat">120.00<span>Premium</span></p>
-                </div>
-                <a href="{{ url_for('main.form') }}"><button class="btn">Manage Your Booking</button></a>
-                <div class="contents">
-                    <div class="set">
-                        <p class="name">Set 1</p>
-                    </div>
-                    <div class="set">
-                        <p class="name">Set 2</p>
-                    </div>
-                    <div class="set">
-                        <p class="name">Set 3</p>
-                    </div>
-                </div>
-            </div>
-    
-            <div class="background"></div>
-    
-            <div class="back"></div>
-        </div>
-        
-        <div class="menu">
-            <div class="rank">3</div>
-            <div class="front">
-                <img src="../static/images/food3.png" alt="">
-                <h3 class="name">9 Course Set</h3>
-                <div class="stats">
-                    <p class="info">Info</p>
-                    <div class="contents">
-                        <img src="../static/images/nut1.png" alt="">
-                        <img src="../static/images/prawn1.png" alt="">
-                        <img src="../static/images/fish4.png" alt="">
-    
-                    </div>
-                </div>
-            </div>
-    
-            <div class="back">
-                <div class="pricing-info">
-                    <p class="menu-stat">90.00<span>Regular</span></p>
-                    <p class="menu-stat">150.00<span>Premium</span></p>
-                </div>
-                <a href="{{ url_for('main.form') }}"><button class="btn">Manage Your Booking</button></a>
-                <div class="contents">
-                    <div class="set">
-                        <p class="name">Set 1</p>
-                    </div>
-                    <div class="set">
-                        <p class="name">Set 2</p>
-                    </div>
-                    <div class="set">
-                        <p class="name">Set 3</p>
-                    </div>
-                </div>
-            </div>
-    
-            <div class="background"></div>
-    
-            <div class="back"></div>
-        </div>
+        {{ menu(fronts[0], ranks[0], names[0], contents_1[0], contents_2[0], contents_3[0], stats_1[0], stats_2[0]) }}
+        {{ menu(fronts[1], ranks[1], names[1], contents_1[1], contents_2[1], contents_3[1], stats_1[1], stats_2[1]) }}
+        {{ menu(fronts[2], ranks[2], names[2], contents_1[2], contents_2[2], contents_3[2], stats_1[2], stats_2[2]) }}
 
     </div>
     
