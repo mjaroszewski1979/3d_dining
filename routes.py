@@ -1,6 +1,6 @@
 from flask import redirect, url_for, render_template, session, request
 from flask import Blueprint
-from models import InfoForm, Date, Details
+from models import InfoForm, Date, Details, Menu
 from flask import Blueprint
 from extensions import db
 
@@ -12,7 +12,19 @@ def index():
 
 @main.route('/menu')
 def menu():
-    return render_template('menu.html')
+
+    menu = Menu()
+    fronts= menu.fronts
+    ranks = menu.ranks
+    names = menu.names
+    contents_1 = menu.contents_1
+    contents_2 = menu.contents_2
+    contents_3 = menu.contents_3
+    stats_1 = menu.stats_1
+    stats_2 = menu.stats_2
+
+    return render_template('menu.html', fronts=fronts, ranks=ranks,  names=names, contents_1=contents_1,
+                contents_2=contents_2, contents_3=contents_3, stats_1=stats_1, stats_2=stats_2)
 
 @main.route('/form', methods=['GET','POST'])
 def form():
