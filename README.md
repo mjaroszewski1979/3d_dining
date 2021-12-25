@@ -27,7 +27,7 @@
 
 
 
-![caption](https://github.com/mjaroszewski1979/3d_dining/blob/main/3_dining.gif)
+![caption](https://github.com/mjaroszewski1979/3d_dining/blob/main/3d_mockup.png)
   
   Live | Code | Docker | Technologies
   ---- | ---- | ------ | ------------
