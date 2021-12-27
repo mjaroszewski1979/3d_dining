@@ -20,7 +20,7 @@
 
 ### Code Coverage
 
-<img src="https://github.com/mjaroszewski1979/3d_dining/blob/main/coverage_img.png">
+<img src="https://github.com/mjaroszewski1979/3d_dining/blob/main/cov_report.png">
 
 
 -------------------------------------------------
