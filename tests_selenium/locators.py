@@ -14,12 +14,19 @@ class MenuPageLocators(object):
 
 class BookPageLocators(object):
 
-    DATE = (By.NAME, 'book_date')
+    BOOK_DATE = (By.NAME, 'book_date')
     GUESTS = (By.NAME, 'guests')
     EMAIL = (By.NAME, 'email')
-    SUBMIT = (By.NAME, 'submit')
+    SUBMIT_BOOK = (By.NAME, 'submit')
     ERROR_MSG = (By.ID, 'error_msg')
     ERROR = (By.CLASS_NAME, 'error')
+
+class AdminPageLocators(object):
+
+    DATE = (By.NAME, 'date')
+    SUBMIT = (By.CLASS_NAME, 'submit')
+    FORM_ERROR = (By.CLASS_NAME, 'form-error')
+    EMAILS = (By.CLASS_NAME, 'emails')
     
 
 class ErrorPageLocators(object):
