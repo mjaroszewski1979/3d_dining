@@ -1,11 +1,15 @@
-from flask import url_for
+import sys
+import os
+
+current = os.path.dirname(os.path.realpath(__file__)) 
+parent = os.path.dirname(current)
+sys.path.append(parent)
+
 from selenium import webdriver
 import page
 from run import create_app
 from extensions import db
 import unittest
-import time
-
 
 
 class TestBase(unittest.TestCase):
@@ -56,9 +60,17 @@ class SeleniumTest(TestBase):
         assert book_page.is_title_matches()
         assert book_page.is_form_works_given_invalid_number_of_guests()
         assert book_page.is_form_works_given_invalid_date()
-        assert book_page.is_form_works_when_fully_booked()
         assert book_page.is_form_works_given_valid_data()
+        assert book_page.is_form_works_when_fully_booked()
 
+    def test_admin_page(self):
+        self.driver.get('http://127.0.0.1:5000/form')
+        admin_page = page.AdminPage(self.driver)
+        admin_page.send_booking('11/10/2022', 29, 'mj@gmail.com')
+        self.driver.get('http://127.0.0.1:5000/admin')
+        assert admin_page.is_title_matches()
+        assert admin_page.is_form_works_given_invalid_date()
+        assert admin_page.is_form_works_given_valid_date('mj@gmail.com')
 
 
 if __name__ == '__main__':
