@@ -18,7 +18,8 @@
 
 --------------------------------------------------
 
-### Code Coverage
+### Code Coverage:
+* Selenium and unit tests combined
 
 <img src="https://github.com/mjaroszewski1979/3d_dining/blob/main/cov_report.png">
 
